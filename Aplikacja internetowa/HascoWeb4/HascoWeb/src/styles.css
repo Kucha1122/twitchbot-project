@@ -1,0 +1,456 @@
+body {
+  font-family: 'Catamaran', sans-serif;
+  height: 100%;
+}
+
+.ui.violet.big.inverted.button {
+  font-family: 'Catamaran', sans-serif;
+}
+
+.ui.container {
+  margin: 0 !important;
+  width: 100%;
+}
+
+.top {
+  background-color: black;
+  height: 110px;
+}
+
+.ui.column {
+  margin: auto !important;
+}
+
+section:first-of-type {
+  background-image: url("./assets//bcg.jpg");
+  background-size: cover;
+  height: 600px;
+  border-bottom: 2px solid black;
+}
+
+section:nth-last-of-type(1) {
+
+  height: 450px;
+  margin-bottom: 20px;
+}
+
+.ui.header.huge {
+  margin: 20px 0px 15px 0px;
+  text-align: center;
+}
+
+.ui.row.wide.eight {
+  margin-top: 25px;
+}
+
+.ui.row.icons {
+  text-align: center;
+  font-size: 44px;
+  margin-bottom: -70px;
+}
+
+.features-text {
+  font-size: 18px;
+  text-align: justify;
+  padding: 20px;
+}
+
+footerc {
+  background-color: black;
+  height: 50px;
+  color: white;
+  font-size: 22px;
+  text-align: center;
+
+}
+
+.footer-text {
+  padding-top: 10px;
+}
+
+.ui.column.two.wide.side.logged {
+  height: 770px;
+  position: relative;
+  color: white;
+}
+
+.ui.medium.header.side {
+  margin: 5px 5px 5px 50px;
+  color: white;
+}
+
+.side {
+  background-color: #6441A5;
+}
+
+.columns.icon {
+  margin-left: 0 !important;
+}
+
+#rows {
+  margin-top: 60px;
+  font-size: 18px;
+  padding: 2px;
+}
+
+.ui.row.side {
+  margin-bottom: 6px;
+}
+
+.ui.row.side:hover {
+  cursor: pointer;
+}
+
+#bottommenu {
+  bottom: 0;
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.7;
+}
+
+#bottommenu i {
+  margin-left: 15px;
+  color: white;
+
+}
+
+#bottommenu #nick {
+  color: white;
+  margin-left: 15px;
+}
+
+#bottommenu #active {
+  color: white;
+}
+
+#bottommenu #active i #online {
+  color: green;
+}
+
+#bottommenu #active i #offline {
+  color: red;
+}
+
+.sidebar-sticky {
+  font-size: 20px;
+}
+
+#dashboard-header {
+  color: #6441A5;
+  opacity: 0.5;
+}
+
+#logout-header {
+  color: #6441A5;
+  opacity: 0.5;
+}
+
+#nick {
+  font-size: 20px;
+  margin: 7px;
+  display: inline-block;
+}
+
+.circle.icon {
+  font-size: 10px;
+}
+
+#active {
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+.ui.column.fourteen.wide.dashboard {
+  background-color: #f5f6fa;
+  margin: 0 !important;
+}
+
+#stats {
+  background-color: white;
+  box-shadow: 3px 3px #dfe0e6;
+  height: 265px;
+}
+
+#statsheader {
+  display: inline-block;
+  color: #6441A5;
+  opacity: 0.5;
+}
+
+#dateheader {
+  display: inline-block;
+  float: right;
+  margin-top: 0px;
+  color: #6441A5;
+  opacity: 0.5;
+}
+
+#statsbox {
+  margin-top: 40px;
+  width: 20%;
+}
+
+.ui.label {
+  width: 100%;
+  margin: 3px;
+  color: #6441A5;
+  opacity: 0.5;
+}
+
+#label {
+  margin-left: 3px;
+}
+
+.ui.row.topchatter {
+  margin-bottom: 15px;
+}
+
+#topchatter {
+  background-color: white;
+  height: 125px;
+  width: 70%;
+  margin: aut;
+  box-shadow: 3px 3px #dfe0e6;
+  color: #6441A5;
+
+}
+
+
+#topcommand {
+  background-color: white;
+  height: 125px;
+  width: 70%;
+  box-shadow: 3px 3px #dfe0e6;
+  color: #6441A5;
+
+
+}
+
+#set {
+  background-color: white;
+  height: 265px;
+  box-shadow: 3px 3px #dfe0e6;
+
+}
+
+#search1 {
+  top: 60px;
+  position: absolute;
+  left: 25px;
+  width: 70%;
+}
+
+#search2 {
+  top: 120px;
+  position: absolute;
+  left: 25px;
+  width: 70%;
+  color: #6441A5;
+}
+
+
+#message {
+  top: 180px;
+  position: absolute;
+  left: 25px;
+  width: 70%;
+  color: #6441A5;
+}
+
+#topchatterleft,
+#topcommandleft {
+  font-size: 32px;
+}
+
+#topchatterright,
+#topcommandright {
+  width: 45%;
+  margin: 0;
+}
+
+#topchatterlabel,
+#topcommandlabel {
+  float: right;
+  top: 0;
+  margin-top: 5px;
+  position: absolute;
+}
+
+#topcommandname,
+#topchattername {
+  font-size: 18px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+#seecommands,
+#seechatters {
+  margin-top: 15px;
+  width: 100%;
+}
+
+#chat {
+  height: 400px;
+  background-color: white;
+  box-shadow: 3px 3px #dfe0e6;
+}
+
+#timeouts {
+  background-color: white;
+  margin-left: 10px;
+  height: 400px;
+  box-shadow: 3px 3px #dfe0e6;
+}
+
+#topchat {
+  border-bottom: 1px solid gray;
+}
+
+.topchat2 {
+  display: inline-block;
+}
+
+#right {
+  float: right;
+}
+
+#chatcontent {
+  height: 240px;
+  border: 1px solid gray;
+  border-radius: 0px 0px 3px 3px;
+  margin-bottom: 8px;
+}
+
+.ui.fluid.input {
+  height: 60px;
+}
+
+.ui.violet.button {
+  margin-top: 10px;
+  float: right;
+}
+
+#modalid {
+  width: 500px;
+  height: 400px;
+  margin-left: 700px;
+  margin-top: 100px;
+
+}
+
+#modalid2 {
+  width: 500px;
+  height: 300px;
+  margin-left: 700px;
+  margin-top: 100px;
+
+}
+
+#modalid3 {
+  width: 500px;
+  height: 300px;
+  margin-left: 700px;
+  margin-top: 100px;
+  color: #6441A5;
+}
+
+#modalid3 .button,
+#modalid2 .button,
+#modalid4 .button,
+#modalid5 .button,
+#modalid .button {
+  background-color: #6441A5;
+  opacity: 0.5;
+}
+
+#modalid4 {
+  width: 500px;
+  height: 450px;
+  margin-left: 700px;
+  margin-top: 100px;
+}
+
+#modalid5 {
+  width: 500px;
+  height: 550px;
+  margin-left: 700px;
+  margin-top: 100px;
+}
+
+.twitchChat-frame {
+  box-shadow: 3px 3px #dfe0e6;
+  width: 80%px;
+  height: 500px;
+  margin-left: 18px;
+}
+
+#settings-menu {
+  height: 800px;
+}
+
+.liveStream-frame {
+  width: 50%px;
+  position: relative;
+  margin-left: 45;
+}
+
+.container {
+  height: 100%;
+}
+
+.dashboard-menu {
+  height: 100%;
+}
+
+.dashboard-content {
+  height: 100%;
+
+}
+
+.fill {
+  min-height: 100%;
+  height: 100%;
+}
+
+#commands,
+#giveaways,
+#spam,
+#logs,
+#settings,
+#dashboard {
+  color: white;
+  margin-left: 5px;
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+.dashboard-settings {
+  background-color: white;
+  box-shadow: 3px 3px #dfe0e6;
+  width: 500px;
+  float: left;
+  height: 465px;
+  opacity: 0.7;
+  color: #6441A5;
+}
+
+.checkbox-inline {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+#settings-menu {
+  width: 100%;
+}
+
+.container-element {
+  margin-top: 15px;
+  margin-left: 20px;
+  color: #6441A5;
+}
+
+.settings-alert {
+  width: 200px;
+  height: 200px;
+}

@@ -1,0 +1,80 @@
+<div class="dashboard" style=" width: 100%;">
+  <div class="ui two column grid dashboard">
+    <div class="ui column">
+      <div class="ui large header" id="dashboard-header">Settings</div>
+    </div>
+    <div class="ui column">
+      <div class="ui large header right floated" id="logout-header">
+        <button class="ui teal button" style="background-color: #6441A5;" (click)="logout()">Logout</button>
+      </div>
+      <div class="ui large header right floated" id="logout-header">
+        <button class="ui teal button" type="button" style="background-color: #6441A5;"
+          (click)="clearChat()">Clear</button>
+      </div>
+    </div>
+  </div>
+  <div class="ui two column grid  dashboard-settings" id="settings-menu">
+    <div class="column row">
+      <div class="wide column w-70">
+        <div class="ui large header left floated">
+          <div class="container">
+            <div class="container-element">
+              Emote Only
+              <button type="button" class="ui teal button"
+                style="margin-left:64px; background-color: #6441A5; opacity: 0.5"
+                (click)="setEmoteOnlyModOn()">ON</button>
+              <button type="button" class="ui teal button"
+                style="margin-left:10px; background-color: #6441A5; opacity: 0.5"
+                (click)="setEmoteOnlyModOff()">OFF</button>
+            </div>
+            <div class="container-element">
+              Subscribers Mod
+              <button type="button" class="ui teal button"
+                style="margin-left:10px; background-color: #6441A5; opacity: 0.5"
+                (click)="setSubscribersModOn()">ON</button>
+              <button type="button" class="ui teal button"
+                style="margin-left:10px; background-color: #6441A5; opacity: 0.5"
+                (click)="setSubscribersModOff()">OFF</button>
+            </div>
+            <div class="container-element">
+              Followers Mod
+              <form class="form-followersModForm form-inline" [formGroup]="followersModForm"
+                (ngSubmit)="setFollowersOn()" style="margin-top:10px;">
+                <input type="text" class="form-control" formControlName="Value" placeholder="Followers time"
+                  style="width:165px; color:#6441A5;">
+                <button type="submit" class="ui teal button" data-dismiss="alert" aria-label="Close"
+                  style="margin-left:30px; background-color: #6441A5; opacity: 0.5">ON</button>
+                <button type="button" class="ui teal button"
+                  style="margin-left:10px; background-color: #6441A5; opacity: 0.5"
+                  (click)="setFollowersOff()">OFF</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wide column">
+        <div class="ui  header right floated">
+          <div class="container">
+            <div>
+              <div class="column alert">
+                <ngb-alert *ngIf="successMessage" (close)="successMessage = null"
+                  style="width:300px; background-color: #6441A5; opacity:0.5; border-radius: 10px;">
+                  <div class="toast-header">
+                    <small style="color:#6441A5;">{{now | date:'short'}}</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"
+                      style="color:white;">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="toast-body" style="color:white;">
+                    {{successMessage}}
+                  </div>
+                </ngb-alert>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

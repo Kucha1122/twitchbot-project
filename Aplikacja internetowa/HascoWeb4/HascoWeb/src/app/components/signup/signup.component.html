@@ -1,0 +1,39 @@
+<div class="auth-wrapper">
+  <form class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+    <h3 class="h3 mb-3 font-weight-normal text-center">Please sign up</h3>
+    <div class="form-group">
+      <label>Channel Name</label>
+      <input type="text" class="form-control" formControlName="channelName"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter channel name" required
+        [ngClass]="{ 'is-invalid': submitted && f.channelName.errors }">
+
+      <div *ngIf="submitted && f.channelName.errors" class="invalid-feedback">
+        <div *ngIf="f.channelName.errors.required">Channel name is required</div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" class="form-control" formControlName="email"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter email" required>
+
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="password"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" required>
+
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+
+    </div>
+    <button type="submit" class="btn btn-block btn-primary" [disabled]="!signupForm.valid">Sign up</button>
+  </form>
+</div>

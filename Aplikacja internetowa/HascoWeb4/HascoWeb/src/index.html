@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>HascoWeb</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Catamaran&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <app-root></app-root>
+
+  <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#rejestracja').click(function () {
+        $('#modalid').modal('show');
+      });
+      $('#logowanie').click(function () {
+        $('#modalid2').modal('show');
+      });
+      $('#commands').click(function () {
+        $('#modalid3').modal('show');
+      }).submit(function () {
+        $('#modalid3').modal('hide');
+      });
+      $('#giveaways').click(function () {
+        $('#modalid4').modal('show');
+      });
+      $('#spam').click(function () {
+        $('#modalid5').modal('show');
+      });
+      $('#logs').click(function () {
+        $('#modalid6').modal('show');
+      });
+    });
+
+  </script>
+</body>
+
+</html>

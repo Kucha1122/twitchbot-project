@@ -1,0 +1,163 @@
+<div class="ui modal" id="modalid">
+  <div class="ui icon header">
+    <div style="color: #6441A5; opacity:0.5;">Rejestracja</div>
+  </div>
+  <div class="content">
+    <div class="ui form">
+      <form class="form-signup" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+        <div class="field">
+          <label style="color: #6441A5; opacity:0.5;">Channel name</label>
+          <input type="text" class="form-control" formControlName="channelName"
+            [ngClass]="{ 'is-invalid': submitted && f.channelName.errors }" placeholder="Channel name" required>
+          <div *ngIf="submitted && f.channelName.errors" class="invalid-feedback">
+            <div *ngIf="f.channelName.errors.required">Channel name is required</div>
+          </div>
+        </div>
+        <div class="field">
+          <label style="color: #6441A5; opacity:0.5;">Email</label>
+          <input type="email" class="form-control" formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email" required>
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
+        </div>
+        <div class="field">
+          <label style="color: #6441A5; opacity:0.5;">Hasło</label>
+          <input type="password" class="form-control" formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Hasło" required>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
+        <button class="ui button green" type="submit" data-dismiss="login-modal">Zarejestruj</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="ui modal" id="modalid2" data-target="modalid2">
+  <div class="ui icon header">
+    <div style="color: #6441A5; opacity:0.5;">Logowanie</div>
+  </div>
+  <div class="content">
+    <div class="ui form">
+      <form class="form-signin" [formGroup]="signinForm" (ngSubmit)="loginUser()">
+        <div class="field">
+          <label style="color: #6441A5; opacity:0.5;">Nazwa kanału</label>
+          <input type="text" class="form-control" formControlName="channelName" name="nazwa" placeholder="Nazwa kanału"
+            required>
+        </div>
+        <div class="field">
+          <label style="color: #6441A5; opacity:0.5;">Hasło</label>
+          <input type="password" class="form-control" formControlName="password" name="haslo" placeholder="Hasło">
+        </div>
+        <button class="ui button green" type="submit" data-dismiss="modalid2">Zaloguj się</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div style="color:#6441A5;">
+  <header>
+    <div class="ui menu">
+      <div class="header item">
+        <p style="color:#6441A5;">Hasco bot</p>
+      </div>
+      <a class="item active" id="logowanie" data-toggle="modalid2">
+        <p style="color:#6441A5;">Logowanie</p>
+      </a>
+      <a class="item" id="rejestracja">
+        <p style="color:#6441A5;">Rejestracja</p>
+      </a>
+    </div>
+  </header>
+  <article background="img/bcg.jpg">
+    <section>
+      <div class="ui three column grid">
+        <div class="ui column wide four">
+        </div>
+        <div class="ui column wide eight">
+          <div class="ui row">
+            <h1 class="ui header huge" style="color:white; opacity:0.7">Streaming will be easier with us!</h1>
+          </div>
+          <div class="ui row">
+            <h4 class="ui header medium" style="color:white;opacity:0.7">Hascobot is chatbot for twitch, it gives you
+              many features which can help you with your stream. It's allows you to automate many tasks, for example
+              automated timeouts.</h4>
+          </div>
+          <div class="ui row wide eight">
+            <img src="../assets/dashboard.png" alt="Preview" class="ui image">
+          </div>
+        </div>
+        <div class="ui column wide four">
+        </div>
+      </div>
+    </section>
+    <section class="ui four column grid">
+      <div class="ui row">
+        <div class="ui column wide seven"></div>
+        <div class="ui column wide two">
+          <div class="ui header huge" style="color:#6441A5;">
+            <h1> Why sign up? </h1>
+          </div>
+        </div>
+        <div class="ui column wide seven"></div>
+      </div>
+      <div class="ui row icons">
+        <div class="ui column wide four">
+          <i class="coffee icon"></i>
+        </div>
+        <div class="ui column wide four">
+          <i class="dashboard icon"></i>
+        </div>
+        <div class="ui column wide four">
+          <i class="filter icon"></i>
+        </div>
+        <div class="ui column wide four">
+          <i class="cloud bar icon"></i>
+        </div>
+      </div>
+      <div class="ui row">
+        <div class="ui column wide four features">
+          <h2 style="text-align: center;">It's free</h2>
+          <div class="features-text">
+            You get the Twitch bot, dashboard, and mobile app
+            for free.
+          </div>
+        </div>
+        <div class="ui column wide four features">
+          <h2 style="text-align: center;">Dashboard</h2>
+          <div class="features-text">
+            We give you fully functional dashboard, where
+            you can set up everything on your bot.
+          </div>
+        </div>
+        <div class="ui column wide four features">
+          <h2 style="text-align: center;">Spam filters</h2>
+          <div class="features-text">
+            You have to opportunity to add several phrases, which
+            can be blocked, and users will be banned;
+          </div>
+        </div>
+        <div class="ui column wide four features">
+          <h2 style="text-align: center;">Cloud hosted</h2>
+          <div class="features-text">
+            Our infrastructure is hosted in private cloud severs, so it will be always on, no worries.
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+  <footer>
+    <div class="footer-text">
+      <p style="text-align: center;">Hasco Bot @2019</p>
+    </div>
+  </footer>
+</div>
+
+<script type="text/javascript">
+  $("#modalid").submit().modal("hide");
+
+</script>

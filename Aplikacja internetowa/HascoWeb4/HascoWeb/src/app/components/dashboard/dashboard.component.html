@@ -1,0 +1,159 @@
+<div class="ui modal" id="modalid3">
+  <div class="ui icon header">
+    <div style="color: #6441A5; opacity:0.5;">Commands</div>
+  </div>
+  <div class="content">
+    <div class="ui form">
+      <form class="form-customCommandsForm" [formGroup]="customCommandsForm" (ngSubmit)="addCommand()">
+        <div class="field">
+          <label style="color: #6441A5; opacity:0.5;">Commands name</label>
+          <input type="text" class="form-control" formControlName="commandName" placeholder="!commandname" required>
+        </div>
+        <div class="field">
+          <label style="color: #6441A5; opacity:0.5;">Response</label>
+          <input type="text" class="form-control" formControlName="response" placeholder="Response in chat..." required>
+        </div>
+        <button class="ui button green" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="ui modal" id="modalid4">
+  <div class="ui icon header">
+    <div style="color: #6441A5; opacity:0.5;">Giveaways</div>
+  </div>
+  <div class="content">
+    <div class="ui">
+      <label style="color: #6441A5; opacity:0.5;">You can run giveaways through Hascobot to increase engagement in
+        your community.</label>
+      <button class="ui button green center" type="button" (click)="startGiveaway()"
+        style="width: 100%; margin-top:10px;">Start</button>
+      <button class="ui button green center" type="button" (click)="drawTheWinner()"
+        style="width: 100%; margin-top:20px;">Draw the
+        winner</button>
+      <hr>
+      <div class="column alert">
+        <ngb-alert *ngIf="successMessage" (close)="successMessage = null"
+          style="background-color: #6441A5; opacity:0.5; border-radius: 10px;">
+          <div class="toast-header">
+            <small style="color:#6441A5;">{{now | date:'short'}}</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" style="color:white;">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body" style="color:white;">
+            <b>{{successMessage}}</b>
+          </div>
+        </ngb-alert>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="ui modal" id="modalid5">
+  <div class="ui icon header">
+    <div style="color: #6441A5; opacity:0.5;">Spam filter</div>
+  </div>
+  <div class="content">
+    <div class="ui form">
+      <label style="color: #6441A5; opacity:0.5;">By adding a blacklisted phrase you can remove specific behavior from
+        your chat, be
+        it spam or any other
+        undesirable behavior.</label>
+      <form class="form-phraseAddForm" [formGroup]="phraseAddForm" (ngSubmit)="addPhrase()">
+        <div class="field">
+          <label style="color: #6441A5; opacity:0.5;">Phrase</label>
+          <input type="text" class="form-control" formControlName="Word" placeholder="Phrase" required>
+        </div>
+        <button class="ui button green" type="submit">Add</button>
+      </form>
+      <hr>
+      <form class="form-removePhraseForm" [formGroup]="removePhraseForm" (ngSubmit)="removePhrase()">
+        <div class="field">
+          <label style="color: #6441A5; opacity:0.5;">Phrase</label>
+          <input type="text" class="form-control" formControlName="Word" placeholder="Phrase" required>
+        </div>
+        <button class="ui button green" type="submit">Remove</button>
+      </form>
+      <hr>
+      <div class="column alert">
+        <ngb-alert *ngIf="successMessage" (close)="successMessage = null"
+          style="background-color: #6441A5; opacity:0.5; border-radius: 10px;">
+          <div class="toast-header">
+            <small style="color:#6441A5;">{{now | date:'short'}}</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" style="color:white;">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body" style="color:white;">
+            <b>{{successMessage}}</b>
+          </div>
+        </ngb-alert>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid h-100" style="width: 100%;">
+  <div class="row h-100">
+    <nav class="col-md-2 d-none d-md-block sidebar" style="background-color:#6441A5">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <div class="ui row">
+              <div class="ui medium header side" style="opacity: 0.7;">TwitchBot</div>
+            </div>
+          </li>
+          <li class="nav-item" style="margin-top:35px;">
+            <div class="ui row side" id="dashboard" [routerLink]="['/dashboard']">
+              <i class="dashboard icon"></i> Dashboard
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="ui row side" id="giveaways">
+              <i class="gift icon"></i> Giveaways
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="ui row side" id="spam">
+              <i class="shield icon"></i> Spam protection
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="ui row side" id="settings" [routerLink]="['settings']">
+              <i class="cog icon"></i> Settings
+            </div>
+          </li>
+          <li>
+            <div id="bottommenu">
+              <i class="facebook icon"></i>
+              <i class="twitter icon"></i>
+              <i class="twitch icon"></i>
+              <i class="discord icon"></i><br>
+              <div class="nickdisplay">
+                <div id="nick"> {{currentUser}} </div>
+                <div id="active">
+                  <div *ngIf="isConnected=='true'; else elseBlock" id="online">
+                    <i class="circle icon" style="color:green"></i>Connected
+                    <button class="ui teal button"
+                      style="background-color: white; color:#6441A5; font-size:10px; padding:10px;margin-left:5px;"
+                      (click)="disconnectFromChannel()">Disconnect</button>
+                  </div>
+                  <ng-template #elseBlock>
+                    <i class="circle icon " style="color:red"></i>Disconnected
+                    <button class="ui button"
+                      style="background-color: white; color:#6441A5; font-size:10px; padding:10px;margin-left:5px;"
+                      (click)="connectToChannel()">Connect</button>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" style="background-color: #F1F1F1;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

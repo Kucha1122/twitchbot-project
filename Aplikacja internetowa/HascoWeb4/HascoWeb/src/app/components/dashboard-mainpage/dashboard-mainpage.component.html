@@ -1,0 +1,114 @@
+<div style=" width: 100%;">
+  <div class="ui two column grid dashboard">
+    <div class="ui column">
+      <div class="ui large header" id="dashboard-header">Dashboard</div>
+    </div>
+    <div class="ui column">
+      <div class="ui large header right floated" id="logout-header">
+        <button class="ui teal button" style="background-color: #6441A5;" (click)="logout()">Logout</button>
+      </div>
+      <div class="ui large header right floated" id="logout-header">
+        <button class="ui teal button" type="button" style="background-color: #6441A5;"
+          (click)="clearChat()">Clear</button>
+      </div>
+    </div>
+  </div>
+  <div class="ui three column grid">
+    <div class="ui six wide column" id="stats">
+      <div class="ui medium header" id="statsheader">Stats</div>
+      <div class="ui medium header" id="dateheader">{{now | date:'short'}}</div><br>
+      <div id="statsbox">
+        <div class="ui label" id="label"> Messages: {{messages}}</div><br>
+        <div class="ui label"> Commands: {{commandsTriggered}}</div><br>
+        <div class="ui label"> Timeouts: {{timedoutUsers}}</div><br>
+        <button class="ui teal button" type="button"
+          style="background-color: #6441A5; opacity: 0.5; margin-top:10px; margin-left:3px;"
+          (click)="resetStats()">Reset
+        </button>
+      </div>
+    </div>
+    <div class="ui four wide column">
+      <div class="ui row topchatter">
+        <div class="ui two column grid" id="topchatter">
+          <div class="ui eight wide column" id="topchatterleft">
+            <i class="trophy icon" style="opacity: 0.5;"></i>
+          </div>
+          <div class="ui eight wide column" id="topchatterright">
+            <div class="ui row" id="topchatterlabel" style="opacity: 0.5;"> Top chatter</div>
+            <div class="ui row" id="topchattername" style="opacity: 0.5;">User</div>
+
+          </div>
+        </div>
+      </div>
+      <div class="ui row topcommand">
+        <div class="ui two column grid" id="topcommand">
+          <div class="ui eight wide column" id="topcommandleft">
+            <i class="clipboard list icon" style="opacity: 0.5;"></i>
+          </div>
+          <div class="ui eight wide column" id="topcommandright">
+            <div class="ui row" id="topcommandlabel" style="opacity: 0.5;"> Top command</div>
+            <div class="ui row" id="topcommandname" style="opacity: 0.5;">!loots</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui four wide column" id="set">
+      <form class="form-timeoutForm" [formGroup]="timeoutForm" (ngSubmit)="timeout()">
+        <div class="ui left action input" id="search1">
+          <button class="ui teal button" type="submit" style="background-color: #6441A5; opacity: 0.5">Timeout</button>
+          <input type="text" formControlName="UserName" placeholder="Nickname" style="width:130px;">
+          <input type="text" formControlName="Seconds" placeholder="Time" style=" width:70px;">
+        </div>
+      </form>
+      <form class="form-slowModForm" [formGroup]="slowModForm" (ngSubmit)="setSlowModOn()">
+        <div class="ui left action input" id="search2">
+          <button class="ui teal button" type="submit" style="background-color: #6441A5; opacity: 0.5"
+            data-dismiss="alert" aria-label="Close">On</button>
+          <button class="ui teal button" type="button" (click)="setSlowModOff()"
+            style="background-color: #6441A5; opacity: 0.5">Off</button>
+          <input type="text" formControlName="Value" placeholder="Set your slow time" style=" width:170px;">
+        </div>
+      </form>
+
+
+      <form class="form-sendMessageForm" [formGroup]="sendMessageForm" (ngSubmit)="sendMessageOnChat()">
+        <div class="ui left action input" id="message">
+          <button class="ui teal button" type="submit" style="background-color: #6441A5; opacity: 0.5">Send</button>
+          <input type="text" formControlName="MessageToSend" placeholder="Message" style=" width:220px;">
+        </div>
+      </form>
+
+    </div>
+
+    <div class="ui vertically divided">
+      <div class="three column row">
+        <div class="column" style="margin-left:15px;">
+          <iframe class="twitchChat-frame" frameborder="0" scrolling="no" id="chat_embed" [src]="twitchChatLink | safe"
+            height="500" width="500">
+          </iframe>
+        </div>
+        <div class="column" style="margin-left:25px;">
+          <iframe class="liveStream-frame" [src]="liveStreamLink | safe" height="500" width="550" frameborder="no"
+            scrolling="no" allowfullscreen="yes">
+          </iframe>
+        </div>
+        <div class="column alert" style="margin-left:25px;">
+          <ngb-alert *ngIf="successMessage" (close)="successMessage = null"
+            style="background-color: #6441A5; opacity:0.5; border-radius: 10px;">
+            <div class="toast-header">
+              <small style="color:#6441A5;">{{now | date:'short'}}</small>
+              <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"
+                style="color:white;">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="toast-body" style="color:white;">
+              <b>{{successMessage}}</b>
+            </div>
+          </ngb-alert>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
